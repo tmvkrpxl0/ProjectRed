@@ -38,7 +38,7 @@ dependencies {
     implementation(project(":transmission")) { transitive = false }
 
     // Dependencies to be packed into jar
-    shadow("io.github.mrtjp:fabrication-engine:${fabrication_version}") { transitive = false }
+    jarJar("io.github.mrtjp:fabrication-engine:${fabrication_version}")
 }
 
 // Jar settings

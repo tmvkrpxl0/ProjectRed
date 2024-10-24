@@ -2,8 +2,7 @@
  * Used only for generating run configs that include all ProjectRed modules in the classpath.
  */
 plugins {
-    id 'net.neoforged.gradle'
-    id 'org.spongepowered.mixin'
+    id 'net.neoforged.moddev'
 }
 
 minecraft {
@@ -22,6 +21,10 @@ minecraft {
                 'projectred_illumination' { source project(":illumination").sourceSets.main }
                 'projectred_integration' { source project(":integration").sourceSets.main }
                 'projectred_transmission' { source project(":transmission").sourceSets.main }
+            }
+
+            dependencies {
+                runtime "io.github.mrtjp:fabrication-engine:${fabrication_version}"
             }
         }
 
