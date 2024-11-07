@@ -22,7 +22,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public class IllumarLampItemRenderer extends WrappedItemModel implements IItemRenderer {
 

@@ -39,9 +39,7 @@ public class ExpansionClientInit {
 
     private static final ModelRegistryHelper MODEL_HELPER = new ModelRegistryHelper();
 
-    public static void init() {
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+    public static void init(final IEventBus modEventBus) {
         modEventBus.addListener(ExpansionClientInit::clientSetup);
 
         // MovementManager hooks

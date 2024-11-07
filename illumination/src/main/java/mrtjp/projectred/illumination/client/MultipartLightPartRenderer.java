@@ -8,7 +8,7 @@ import mrtjp.projectred.core.client.HaloRenderer;
 import mrtjp.projectred.illumination.part.MultipartLightPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public class MultipartLightPartRenderer implements PartRenderer<MultipartLightPart> {
 

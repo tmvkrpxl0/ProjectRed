@@ -22,7 +22,7 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.TextureStitchEvent;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;

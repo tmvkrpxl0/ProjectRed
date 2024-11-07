@@ -7,7 +7,7 @@ import mrtjp.projectred.expansion.GraphDebugManager;
 import mrtjp.projectred.expansion.graphs.GraphContainer;
 import mrtjp.projectred.expansion.graphs.GraphNode;
 import net.minecraft.world.level.chunk.LevelChunk;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public abstract class GraphContainerTubePart extends RedstoneTubePart implements TickablePart, GraphContainer {
 

@@ -4,7 +4,7 @@ import codechicken.lib.render.CCRenderState;
 import codechicken.multipart.api.part.render.PartRenderer;
 import mrtjp.projectred.expansion.part.FramePart;
 import net.minecraft.client.renderer.RenderType;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public class FramePartRenderer implements PartRenderer<FramePart> {
 

@@ -17,8 +17,23 @@ val cbm_version: String by project
 val cct_version: String by project
 val jei_version: String by project
 
+configurations {
+    testCompileClasspath {
+        extendsFrom(compileClasspath.get())
+    }
+    testRuntimeClasspath {
+        extendsFrom(runtimeClasspath.get())
+    }
+}
+
 neoForge {
     version = "$mc_version-$forge_version"
+
+    mods {
+        register(mod_id) {
+            sourceSet(sourceSets.main.get())
+        }
+    }
 
     parchment {
         minecraftVersion = mc_version
@@ -26,8 +41,13 @@ neoForge {
     }
 
     setAccessTransformers(file("src/main/resources/META-INF/accesstransformer.cfg"))
+    // validateAccessTransformers = true
+
     runs {
-        create("data") {
+        register("client") {
+            client()
+        }
+        register("data") {
             data()
 
             programArguments.addAll(
@@ -39,12 +59,6 @@ neoForge {
                 "--existing",
                 file("src/main/resources").absolutePath
             )
-        }
-
-        mods {
-            create(mod_id) {
-                sourceSet(sourceSets.main.get())
-            }
         }
     }
 }
@@ -71,6 +85,10 @@ dependencies {
 }
 
 tasks {
+    named<Test>("test") {
+        useJUnitPlatform()
+    }
+
     create<TaskPublishCurseForge>("publishToCurseForge") {
         apiToken = System.getenv("CURSE_TOKEN") ?: "XXX"
         val projectId = "228702"

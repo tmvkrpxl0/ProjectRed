@@ -1,7 +1,7 @@
 import net.darkhax.curseforgegradle.TaskPublishCurseForge
 
 plugins {
-    id("net.neoforged.moddev.legacy") version "2.0.41-beta-pr-118-legacy"
+    id("net.neoforged.moddev.legacy")
     id("net.darkhax.curseforgegradle")
 }
 
@@ -25,7 +25,10 @@ neoForge {
     // accessTransformer = file("../core/src/main/resources/META-INF/accesstransformer.cfg")
 
     runs {
-        create("data") {
+        register("client") {
+            client()
+        }
+        register("data") {
             data()
             programArguments.addAll(
                 "--mod",
@@ -50,8 +53,7 @@ dependencies {
     modImplementation("io.codechicken:CodeChickenLib:${mc_version}-${ccl_version}:universal")
     modImplementation("io.codechicken:CBMultipart:${mc_version}-${cbm_version}:universal")
 
-    modImplementation(project(":core"))
-    additionalRuntimeClasspath(project(":core"))
+    implementation(project(":core"))
 }
 
 mixin {

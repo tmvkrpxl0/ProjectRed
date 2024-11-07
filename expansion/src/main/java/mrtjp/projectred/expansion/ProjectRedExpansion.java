@@ -25,6 +25,7 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
@@ -59,13 +60,13 @@ public class ProjectRedExpansion {
         ExpansionCreativeModeTabs.register();
     }
 
-    public ProjectRedExpansion() {
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+    public ProjectRedExpansion(final IEventBus modEventBus) {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::onGatherDataEvent);
 
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ExpansionClientInit::init);
+        if (FMLEnvironment.dist.isClient()) {
+            ExpansionClientInit.init(modEventBus);
+        }
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);

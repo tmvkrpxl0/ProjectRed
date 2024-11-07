@@ -9,7 +9,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public class FireStarterBlock extends BaseDeviceBlock {
 
